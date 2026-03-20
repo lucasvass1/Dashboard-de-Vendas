@@ -1,0 +1,18 @@
+{
+  "orders": [
+    {
+      "id": 1,
+      "customer": "Lucas",
+      "date": "2026-03-10",
+      "amount": 150,
+      "status": "pago"
+    },
+    {
+      "id": 2,
+      "customer": "Ana",
+      "date": "2026-03-11",
+      "amount": 200,
+      "status": "pendente"
+    }
+  ]
+}

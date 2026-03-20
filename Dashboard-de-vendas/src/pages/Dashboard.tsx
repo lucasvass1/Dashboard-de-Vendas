@@ -1,21 +1,53 @@
 import { Layout } from "../components/Layout";
 import { MetricaCard } from "../components/MetricaCard";
 import { salesData } from "../data/salesData";
-import { orders } from "../data/orders";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Table } from "../components/Table";
 import { FilterButtons } from "../components/FilterButtons";
 import { SalesChart } from "../components/SalesChart";
 import { chartData } from "../data/chartData";
 
+
+type Order = {
+  id: number;
+  customer: string;
+  date: string;
+  amount: number;
+  status: string;
+};
+
 export function Dashboard() {
-  const [statusFilter, setStatusFilter] = useState("todos");
+  const [loading, setLoading] = useState(true);
+const [error, setError] = useState(false);
+    const [statusFilter, setStatusFilter] = useState("todos");
+
+
+  const [orders, setOrders] = useState<Order[]>([]);
+
+  
+  useEffect(() => {
+    setLoading(true);
+    setError(false);
+
+    fetch("http://localhost:3001/orders")
+      .then((res) => res.json())
+      .then((data) => {
+        setOrders(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
+
 
   const filteredOrders =
     statusFilter === "todos"
       ? orders
       : orders.filter((order) => order.status === statusFilter);
-
+if (loading) return <p>Carregando...</p>;
+if (error) return <p>Erro ao carregar dados</p>;
   return (
     <Layout>
       <h2 style={{ marginBottom: "20px" }}>Visão Geral</h2>
@@ -26,16 +58,13 @@ export function Dashboard() {
         <MetricaCard title="Clientes" value={String(salesData.customers)} />
       </div>
 
-      
       <SalesChart data={chartData} />
 
-      
       <FilterButtons
         statusFilter={statusFilter}
         setStatusFilter={setStatusFilter}
       />
 
-      
       <Table data={filteredOrders} />
     </Layout>
   );
