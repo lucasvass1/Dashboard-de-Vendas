@@ -4,7 +4,7 @@ import { salesData }  from "../data/salesData";
 import { orders } from "../data/orders";
 import { useState } from "react";
 import { Table } from "../components/Table";
-
+import { FilterButtons } from "../components/Filterbuttons";
 
 export function Dashboard() {
     const [statusFilter, setStatusFilter] = useState("todos");
@@ -19,12 +19,7 @@ export function Dashboard() {
         <MetricaCard title="Vendas" value= {String(salesData.sales)} />
         <MetricaCard title="Clientes" value= {String(salesData.customers)} />
      </div>
-     <div style={{marginTop: "30px", marginBottom: "30px"}}>
-        <button onClick={() => setStatusFilter("todos")} style={{fontWeight: statusFilter === "todos" ? "bold" : "normal"}}>Todos</button>
-        <button onClick={() => setStatusFilter("pago")} style={{fontWeight: statusFilter === "pago" ? "bold" : "normal"}}>Pagos</button>
-        <button onClick={() => setStatusFilter("pendente")} style={{fontWeight: statusFilter === "pendente" ? "bold" : "normal"}}>Pendentes</button>
-        <button onClick={() => setStatusFilter("cancelado")} style={{fontWeight: statusFilter === "cancelado" ? "bold" : "normal"}}>Cancelados</button>
-        </div>
+     <FilterButtons statusFilter={statusFilter} setStatusFilter={setStatusFilter} />
        <Table data={filteredOrders} />
         </Layout>
     );
