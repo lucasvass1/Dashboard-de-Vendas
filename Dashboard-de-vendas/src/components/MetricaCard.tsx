@@ -9,13 +9,13 @@ export function MetricaCard({ title , value }: MetricaCardProps) {
         style={{
             background: "#fff",
             padding: "20px",
-            borderRadius: "10px",
-            boxShadow: "0 0 10px rgba(0,0,0,0.1)",
-            flex:1,
+            borderRadius: "12px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.5)",
+            minWidth: "150px",  
         }}
         >
-            <h4>{title}</h4>
-            <h2>{value}</h2>
+            <h4 style={{color: "#666", marginBottom: "8px"}}>{title}</h4>
+            <h2 style={{ margin: 0 }}>{value}</h2>
         </div>
     );
         

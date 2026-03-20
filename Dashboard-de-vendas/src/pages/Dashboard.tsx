@@ -14,7 +14,7 @@ export function Dashboard() {
         return (
         <Layout>
      <h2 style={{marginBottom: "20px"}}>Visão Geral</h2>
-     <div style={{display: "flex", gap: "20px"}}>
+     <div style={{display: "flex", gap: "20px", marginBottom: "20px"}}>
         <MetricaCard title="Receita" value= {`R$ ${salesData.revenue}`} />
         <MetricaCard title="Vendas" value= {String(salesData.sales)} />
         <MetricaCard title="Clientes" value= {String(salesData.customers)} />
