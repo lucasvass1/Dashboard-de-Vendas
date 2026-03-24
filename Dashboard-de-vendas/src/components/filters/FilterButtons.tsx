@@ -31,7 +31,7 @@ export function FilterButtons({
   });
 
   return (
-    <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+    <div className="px-4 py-2 rounded-lg transiction">
       <button onClick={() => setStatusFilter("todos")} style={getButtonStyle("todos")}>
         Todos
       </button>

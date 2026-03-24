@@ -1,36 +1,22 @@
 import { Layout } from "../components/Layout";
-import { MetricaCard } from "../components/MetricaCard";
+import { MetricaCard } from "../components/cards/MetricaCard";
 import { salesData } from "../data/salesData";
 import { useState, useEffect } from "react";
-import { Table } from "../components/Table";
-import { FilterButtons } from "../components/FilterButtons";
-import { SalesChart } from "../components/SalesChart";
+import { Table } from "../components/table/Table";
+import { FilterButtons } from "../components/filters/FilterButtons";
+import { SalesChart } from "../components/charts/SalesChart";
 import { chartData } from "../data/chartData";
-
-
-type Order = {
-  id: number;
-  customer: string;
-  date: string;
-  amount: number;
-  status: string;
-};
+import { getOrders } from "../services/api";
+import type { Order } from "../types/Order";
 
 export function Dashboard() {
   const [loading, setLoading] = useState(true);
-const [error, setError] = useState(false);
-    const [statusFilter, setStatusFilter] = useState("todos");
-
-
+  const [error, setError] = useState(false);
+  const [statusFilter, setStatusFilter] = useState("todos");
   const [orders, setOrders] = useState<Order[]>([]);
 
-  
   useEffect(() => {
-    setLoading(true);
-    setError(false);
-
-    fetch("http://localhost:3001/orders")
-      .then((res) => res.json())
+    getOrders()
       .then((data) => {
         setOrders(data);
         setLoading(false);
@@ -41,24 +27,44 @@ const [error, setError] = useState(false);
       });
   }, []);
 
-
   const filteredOrders =
     statusFilter === "todos"
       ? orders
       : orders.filter((order) => order.status === statusFilter);
-if (loading) return <p>Carregando...</p>;
-if (error) return <p>Erro ao carregar dados</p>;
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="flex justify-center items-center h-64">
+          <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-gray-800"></div>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (error) {
+    return (
+      <Layout>
+        <p className="text-red-500 text-center mt-10">
+          Erro ao carregar dados
+        </p>
+      </Layout>
+    );
+  }
+
   return (
     <Layout>
-      <h2 style={{ marginBottom: "20px" }}>Visão Geral</h2>
+      <h2 className="text-2xl font-semibold mb-6">Visão Geral</h2>
 
-      <div style={{ display: "flex", gap: "20px", marginBottom: "20px" }}>
+      <div className="grid grid-cols-3 gap-8">
         <MetricaCard title="Receita" value={`R$ ${salesData.revenue}`} />
         <MetricaCard title="Vendas" value={String(salesData.sales)} />
         <MetricaCard title="Clientes" value={String(salesData.customers)} />
       </div>
 
-      <SalesChart data={chartData} />
+      <div className="my-8">
+        <SalesChart data={chartData} />
+      </div>
 
       <FilterButtons
         statusFilter={statusFilter}
