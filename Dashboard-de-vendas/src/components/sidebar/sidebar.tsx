@@ -2,7 +2,7 @@ import { Home, ShoppingCart, Users, BarChart } from "lucide-react";
 import { Link } from "react-router-dom";
 export function Sidebar() {
     return (
-        <aside className="w-64 h-screen bg-gray-900 text-white flex flex-col p-6">
+        <aside className="w-64  bg-gray-900 text-white flex flex-col p-6">
             <h1 className="text-2xl font-bold mb-10 tracking-wide">
   📊 Sales Dashboard
 </h1>
