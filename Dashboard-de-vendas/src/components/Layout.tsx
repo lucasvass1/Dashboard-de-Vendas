@@ -1,18 +1,19 @@
-export function Layout({ children}: { children: React.ReactNode }) {
-    return (
-        <div style={{display: "flex", height: "100vh"}}>
-            <aside style={{width: "250px", background: "#111", color:"#fff", padding: "20px"}}>
-                <h2>Dashboard</h2>
-                <p>Vendas</p>
-            </aside>
-            <div style={{flex:1 , display: "flex", flexDirection: "column"}}>
-                <header style={{height: "60px" , background: "#eee" , padding: "10px"}}>
-                <h3>Painel de Vendas</h3>
-              </header>
-              <main style={{flex:1 , padding: "20px"}}>
-                {children}
-              </main>
-            </div>
-        </div>
-    );
+import { Sidebar } from "./sidebar/sidebar";
+
+type Props = {
+  children: React.ReactNode;
+};
+
+export function Layout({ children }: Props) {
+  return (
+    <div className="flex">
+
+      <Sidebar />
+
+      <main className="flex-1 p-8 bg-gray-100 min-h-screen">
+        {children}
+      </main>
+
+    </div>
+  );
 }
