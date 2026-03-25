@@ -1,0 +1,144 @@
+# 📊 Sales Dashboard
+
+Um **Dashboard de Vendas moderno** desenvolvido com **React, TypeScript e TailwindCSS**, que permite visualizar métricas de vendas, analisar gráficos e filtrar pedidos por status.
+
+Este projeto simula um **painel administrativo utilizado por empresas** para acompanhar indicadores de negócio em tempo real.
+
+---
+
+## 🚀 Preview
+
+Interface com:
+
+* 📈 **Gráfico de vendas**
+* 📊 **Cards de métricas**
+* 📋 **Tabela de pedidos**
+* 🔎 **Filtro por status**
+* ⏳ **Loading state**
+* ⚠️ **Error handling**
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **React**
+* **TypeScript**
+* **TailwindCSS**
+* **Recharts**
+* **JSON Server (API mock)**
+* **Vite**
+
+---
+
+## 🧠 Conceitos Aplicados
+
+Este projeto aplica diversas boas práticas de desenvolvimento front-end:
+
+* Arquitetura baseada em **componentes reutilizáveis**
+* **Separação de responsabilidades**
+* **Tipagem forte com TypeScript**
+* Consumo de **API simulada**
+* **Estados de Loading e Error**
+* **Organização profissional de pastas**
+* **UI moderna com Tailwind**
+
+---
+
+## 📊 Funcionalidades
+
+### Dashboard
+
+* Visualização de **métricas de vendas**
+* Cards com:
+
+  * Receita
+  * Total de vendas
+  * Clientes
+
+### Gráfico
+
+* Gráfico de vendas mensais
+* Visualização clara da evolução do negócio
+
+### Filtros
+
+Permite filtrar pedidos por:
+
+* Todos
+* Pagos
+* Pendentes
+* Cancelados
+
+### Tabela de pedidos
+
+Exibe:
+
+* ID
+* Cliente
+* Data
+* Valor
+* Status
+
+Com:
+
+* destaque visual de status
+* hover nas linhas
+* layout moderno
+
+---
+
+## 🔌 API Simulada
+
+O projeto utiliza **JSON Server** para simular uma API.
+
+Arquivo:
+
+```
+db.json
+```
+
+Para iniciar a API:
+
+```bash
+npx json-server --watch db.json --port 3001
+```
+
+---
+
+## ▶️ Como Rodar o Projeto
+
+### 1️⃣ Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/sales-dashboard.git
+```
+
+---
+
+### 2️⃣ Instalar dependências
+
+```bash
+npm install
+```
+
+---
+
+### 3️⃣ Iniciar o projeto
+
+```bash
+npm run dev
+```
+
+---
+
+### 4️⃣ Iniciar API mock
+
+```bash
+npx json-server --watch db.json --port 3001
+```
+
+---
+
+## 👨‍💻 Autor
+
+**Lucas Vasconcelos**
