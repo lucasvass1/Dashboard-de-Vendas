@@ -16,6 +16,8 @@ export function Dashboard() {
   const [statusFilter, setStatusFilter] = useState("todos");
   const [search, setSearch] = useState("");
   const [orders, setOrders] = useState<Order[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
   useEffect(() => {
     getOrders()
@@ -36,6 +38,13 @@ export function Dashboard() {
   .filter((order) =>
     order.customer.toLowerCase().includes(search.toLowerCase())
   );
+  const totalPages = Math.ceil(filteredOrders.length / itemsPerPage);
+
+const startIndex = (currentPage - 1) * itemsPerPage;
+const paginatedOrders = filteredOrders.slice(
+  startIndex,
+  startIndex + itemsPerPage
+);
 
   if (loading) {
     return (
@@ -84,7 +93,38 @@ export function Dashboard() {
     className="w-full max-w-sm px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
 </div>
-      <Table data={filteredOrders} />
+      <Table data={paginatedOrders} />
+  <div className="flex justify-center gap-2 mt-6">
+
+  <button
+    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+    className="px-3 py-1 border rounded"
+  >
+    ◀
+  </button>
+
+  {Array.from({ length: totalPages }).map((_, index) => (
+    <button
+      key={index}
+      onClick={() => setCurrentPage(index + 1)}
+      className={`px-3 py-1 border rounded ${
+        currentPage === index + 1 ? "bg-gray-900 text-white" : ""
+      }`}
+    >
+      {index + 1}
+    </button>
+  ))}
+
+  <button
+    onClick={() =>
+      setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+    }
+    className="px-3 py-1 border rounded"
+  >
+    ▶
+  </button>
+
+</div>
     </Layout>
   );
 }
