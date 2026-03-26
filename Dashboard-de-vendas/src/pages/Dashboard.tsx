@@ -14,6 +14,7 @@ export function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [statusFilter, setStatusFilter] = useState("todos");
+  const [search, setSearch] = useState("");
   const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
@@ -28,10 +29,13 @@ export function Dashboard() {
       });
   }, []);
 
-  const filteredOrders =
-    statusFilter === "todos"
-      ? orders
-      : orders.filter((order) => order.status === statusFilter);
+ const filteredOrders = orders
+  .filter((order) =>
+    statusFilter === "todos" ? true : order.status === statusFilter
+  )
+  .filter((order) =>
+    order.customer.toLowerCase().includes(search.toLowerCase())
+  );
 
   if (loading) {
     return (
@@ -71,7 +75,15 @@ export function Dashboard() {
         statusFilter={statusFilter}
         setStatusFilter={setStatusFilter}
       />
-
+<div className="mb-4">
+  <input
+    type="text"
+    placeholder="Buscar cliente..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+    className="w-full max-w-sm px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+</div>
       <Table data={filteredOrders} />
     </Layout>
   );
