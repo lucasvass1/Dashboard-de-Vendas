@@ -21,7 +21,7 @@ export function Table({ data }: TableProps) {
   }
 }
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden mt-6">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mt-6">
       <table className="w-full border-collapse">
         
         <thead className="bg-gray-100 text-gray-600 text-sm uppercase">

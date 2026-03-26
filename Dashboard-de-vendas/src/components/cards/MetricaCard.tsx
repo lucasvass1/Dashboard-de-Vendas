@@ -11,7 +11,7 @@ type MetricaCardProps = {
 export function MetricaCard({ title, value, change, icon }: MetricaCardProps) {
     const isPositive = change > 0;
     return (
-    <div className="bg-white p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition">
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition">
 
       <div className="flex flex-col gap-1">
         <span className="text-sm text-gray-500">{title}</span>
