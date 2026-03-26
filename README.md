@@ -1,95 +1,87 @@
 # 📊 Sales Dashboard
 
-Um **Dashboard de Vendas moderno** desenvolvido com **React, TypeScript e TailwindCSS**, que permite visualizar métricas de vendas, analisar gráficos e filtrar pedidos por status.
-
-Este projeto simula um **painel administrativo utilizado por empresas** para acompanhar indicadores de negócio em tempo real.
-
----
-
-## 🚀 Preview
-
-Interface com:
-
-* 📈 **Gráfico de vendas**
-* 📊 **Cards de métricas**
-* 📋 **Tabela de pedidos**
-* 🔎 **Filtro por status**
-* ⏳ **Loading state**
-* ⚠️ **Error handling**
+Dashboard moderno de vendas desenvolvido com **React, TypeScript, Vite e TailwindCSS**.
+O projeto simula um painel administrativo de empresas SaaS com métricas, gráficos e gerenciamento de pedidos.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+# 🚀 Tecnologias Utilizadas
 
 * **React**
 * **TypeScript**
-* **TailwindCSS**
-* **Recharts**
-* **JSON Server (API mock)**
 * **Vite**
+* **TailwindCSS**
+* **React Router**
+* **Lucide Icons**
+* **JSON Server (API mock)**
 
 ---
 
-## 🧠 Conceitos Aplicados
+# ✨ Funcionalidades
 
-Este projeto aplica diversas boas práticas de desenvolvimento front-end:
+### 📈 Dashboard
 
-* Arquitetura baseada em **componentes reutilizáveis**
-* **Separação de responsabilidades**
-* **Tipagem forte com TypeScript**
-* Consumo de **API simulada**
-* **Estados de Loading e Error**
-* **Organização profissional de pastas**
-* **UI moderna com Tailwind**
+* Cards de métricas estilo **SaaS**
+* Gráfico de vendas
+* Indicadores de receita, vendas e clientes
 
----
+### 📋 Tabela de Pedidos
 
-## 📊 Funcionalidades
+* Listagem de pedidos
+* **Filtros por status**
+* **Busca de pedidos**
+* **Paginação**
+* **Status badges**
 
-### Dashboard
+### 🎨 Interface Moderna
 
-* Visualização de **métricas de vendas**
-* Cards com:
+* Layout profissional de dashboard
+* **Sidebar com navegação**
+* **Dark Mode / Light Mode**
+* Interface responsiva
+* Transições suaves entre temas
 
-  * Receita
-  * Total de vendas
-  * Clientes
+### 🔌 Integração com API
 
-### Gráfico
-
-* Gráfico de vendas mensais
-* Visualização clara da evolução do negócio
-
-### Filtros
-
-Permite filtrar pedidos por:
-
-* Todos
-* Pagos
-* Pendentes
-* Cancelados
-
-### Tabela de pedidos
-
-Exibe:
-
-* ID
-* Cliente
-* Data
-* Valor
-* Status
-
-Com:
-
-* destaque visual de status
-* hover nas linhas
-* layout moderno
+* Consumo de API utilizando **fetch**
+* Simulação de backend com **JSON Server**
 
 ---
 
-## 🔌 API Simulada
+# 🗂 Estrutura do Projeto
 
-O projeto utiliza **JSON Server** para simular uma API.
+```
+src
+ ├── components
+ │    ├── cards
+ │    ├── charts
+ │    ├── filters
+ │    ├── sidebar
+ │    ├── table
+ │    └── theme
+ │
+ ├── pages
+ │    ├── Dashboard
+ │    ├── Pedidos
+ │    ├── Clientes
+ │    └── Relatorios
+ │
+ ├── services
+ │    └── api.ts
+ │
+ ├── types
+ │    └── Order.ts
+ │
+ └── data
+      ├── chartData.ts
+      └── salesData.ts
+```
+
+---
+
+# 🔌 API Simulada
+
+O projeto utiliza **JSON Server** para simular uma API REST.
 
 Arquivo:
 
@@ -103,9 +95,15 @@ Para iniciar a API:
 npx json-server --watch db.json --port 3001
 ```
 
+Endpoint utilizado no projeto:
+
+```
+http://localhost:3001/orders
+```
+
 ---
 
-## ▶️ Como Rodar o Projeto
+# ▶️ Como Rodar o Projeto
 
 ### 1️⃣ Clonar o repositório
 
@@ -115,7 +113,15 @@ git clone https://github.com/seu-usuario/sales-dashboard.git
 
 ---
 
-### 2️⃣ Instalar dependências
+### 2️⃣ Acessar a pasta
+
+```bash
+cd sales-dashboard
+```
+
+---
+
+### 3️⃣ Instalar dependências
 
 ```bash
 npm install
@@ -123,7 +129,7 @@ npm install
 
 ---
 
-### 3️⃣ Iniciar o projeto
+### 4️⃣ Iniciar o projeto
 
 ```bash
 npm run dev
@@ -131,7 +137,7 @@ npm run dev
 
 ---
 
-### 4️⃣ Iniciar API mock
+### 5️⃣ Iniciar API mock
 
 ```bash
 npx json-server --watch db.json --port 3001
@@ -139,6 +145,31 @@ npx json-server --watch db.json --port 3001
 
 ---
 
-## 👨‍💻 Autor
+# 📸 Preview do Projeto
+
+Dashboard com:
+
+* métricas de vendas
+* gráfico de receita
+* tabela de pedidos
+* busca e filtros
+* modo escuro
+
+---
+
+# 💡 Possíveis Melhorias Futuras
+
+* Autenticação de usuários
+* Backend real com **Node.js ou NestJS**
+* Banco de dados **PostgreSQL**
+* Deploy completo (Frontend + Backend)
+* Sidebar colapsável
+* Exportação de relatórios
+
+---
+
+# 👨‍💻 Autor
 
 **Lucas Vasconcelos**
+
+---
