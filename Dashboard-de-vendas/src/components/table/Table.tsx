@@ -1,11 +1,25 @@
 import type { Order } from "../../types/Order";
-import { StatusBadge } from "../StatusBadge";
+
 type TableProps = {
   data: Order[];
 };
 
 export function Table({ data }: TableProps) {
-  
+  function getStatusStyle(status: string) {
+  switch (status) {
+    case "pago":
+      return "bg-green-100 text-green-700";
+
+    case "pendente":
+      return "bg-yellow-100 text-yellow-700";
+
+    case "cancelado":
+      return "bg-red-100 text-red-700";
+
+    default:
+      return "bg-gray-100 text-gray-700";
+  }
+}
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden mt-6">
       <table className="w-full border-collapse">
@@ -45,9 +59,15 @@ export function Table({ data }: TableProps) {
             R$ {order.amount}
           </td>
 
-          <td className="px-6 py-4">
-            <StatusBadge status={order.status} />
-          </td>
+          <td className="px-4 py-3">
+  <span
+    className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusStyle(
+      order.status
+    )}`}
+  >
+    {order.status}
+  </span>
+</td>
         </tr>
       ))
     )}
