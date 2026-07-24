@@ -5,7 +5,6 @@ O projeto simula um painel administrativo de empresas SaaS com métricas, gráfi
 
 ---
 
-<<<<<<< HEAD
 ## 🚀 Preview
 
 Interface com:
@@ -24,7 +23,6 @@ Interface com:
 ## 🛠️ Tecnologias Utilizadas
 =======
 # 🚀 Tecnologias Utilizadas
->>>>>>> 174a3a918f6a0163721c9406d0369cf0a7d3b7e8
 
 * **React**
 * **TypeScript**
@@ -69,7 +67,6 @@ Interface com:
 
 # 🗂 Estrutura do Projeto
 
-<<<<<<< HEAD
 ### Dashboard (`/`)
 
 * Visualização de **métricas de vendas**
@@ -141,7 +138,6 @@ src
       ├── chartData.ts
       └── salesData.ts
 ```
->>>>>>> 174a3a918f6a0163721c9406d0369cf0a7d3b7e8
 
 ---
 
