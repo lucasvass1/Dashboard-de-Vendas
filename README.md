@@ -1,11 +1,11 @@
 # 📊 Sales Dashboard
 
-Um **Dashboard de Vendas moderno** desenvolvido com **React, TypeScript e TailwindCSS**, que permite visualizar métricas de vendas, analisar gráficos e filtrar pedidos por status.
-
-Este projeto simula um **painel administrativo utilizado por empresas** para acompanhar indicadores de negócio em tempo real.
+Dashboard moderno de vendas desenvolvido com **React, TypeScript, Vite e TailwindCSS**.
+O projeto simula um painel administrativo de empresas SaaS com métricas, gráficos e gerenciamento de pedidos.
 
 ---
 
+<<<<<<< HEAD
 ## 🚀 Preview
 
 Interface com:
@@ -22,32 +22,54 @@ Interface com:
 ---
 
 ## 🛠️ Tecnologias Utilizadas
+=======
+# 🚀 Tecnologias Utilizadas
+>>>>>>> 174a3a918f6a0163721c9406d0369cf0a7d3b7e8
 
 * **React**
 * **TypeScript**
-* **TailwindCSS**
-* **Recharts**
-* **JSON Server (API mock)**
 * **Vite**
+* **TailwindCSS**
+* **React Router**
+* **Lucide Icons**
+* **JSON Server (API mock)**
 
 ---
 
-## 🧠 Conceitos Aplicados
+# ✨ Funcionalidades
 
-Este projeto aplica diversas boas práticas de desenvolvimento front-end:
+### 📈 Dashboard
 
-* Arquitetura baseada em **componentes reutilizáveis**
-* **Separação de responsabilidades**
-* **Tipagem forte com TypeScript**
-* Consumo de **API simulada**
-* **Estados de Loading e Error**
-* **Organização profissional de pastas**
-* **UI moderna com Tailwind**
+* Cards de métricas estilo **SaaS**
+* Gráfico de vendas
+* Indicadores de receita, vendas e clientes
+
+### 📋 Tabela de Pedidos
+
+* Listagem de pedidos
+* **Filtros por status**
+* **Busca de pedidos**
+* **Paginação**
+* **Status badges**
+
+### 🎨 Interface Moderna
+
+* Layout profissional de dashboard
+* **Sidebar com navegação**
+* **Dark Mode / Light Mode**
+* Interface responsiva
+* Transições suaves entre temas
+
+### 🔌 Integração com API
+
+* Consumo de API utilizando **fetch**
+* Simulação de backend com **JSON Server**
 
 ---
 
-## 📊 Funcionalidades
+# 🗂 Estrutura do Projeto
 
+<<<<<<< HEAD
 ### Dashboard (`/`)
 
 * Visualização de **métricas de vendas**
@@ -92,12 +114,40 @@ Com:
 * Alternância entre modo claro e escuro, com preferência salva no navegador
 
 > ⚠️ As páginas **Pedidos**, **Clientes** e **Relatórios** ainda são telas placeholder ("em breve"), sem funcionalidade própria implementada. Toda a lógica de dados hoje está concentrada na tela de Dashboard.
+=======
+```
+src
+ ├── components
+ │    ├── cards
+ │    ├── charts
+ │    ├── filters
+ │    ├── sidebar
+ │    ├── table
+ │    └── theme
+ │
+ ├── pages
+ │    ├── Dashboard
+ │    ├── Pedidos
+ │    ├── Clientes
+ │    └── Relatorios
+ │
+ ├── services
+ │    └── api.ts
+ │
+ ├── types
+ │    └── Order.ts
+ │
+ └── data
+      ├── chartData.ts
+      └── salesData.ts
+```
+>>>>>>> 174a3a918f6a0163721c9406d0369cf0a7d3b7e8
 
 ---
 
-## 🔌 API Simulada
+# 🔌 API Simulada
 
-O projeto utiliza **JSON Server** para simular uma API.
+O projeto utiliza **JSON Server** para simular uma API REST.
 
 Arquivo:
 
@@ -111,9 +161,15 @@ Para iniciar a API:
 npx json-server --watch db.json --port 3001
 ```
 
+Endpoint utilizado no projeto:
+
+```
+http://localhost:3001/orders
+```
+
 ---
 
-## ▶️ Como Rodar o Projeto
+# ▶️ Como Rodar o Projeto
 
 ### 1️⃣ Clonar o repositório
 
@@ -123,7 +179,15 @@ git clone https://github.com/lucasvass1/Dashboard-de-Vendas.git
 
 ---
 
-### 2️⃣ Instalar dependências
+### 2️⃣ Acessar a pasta
+
+```bash
+cd sales-dashboard
+```
+
+---
+
+### 3️⃣ Instalar dependências
 
 ```bash
 npm install
@@ -131,7 +195,7 @@ npm install
 
 ---
 
-### 3️⃣ Iniciar o projeto
+### 4️⃣ Iniciar o projeto
 
 ```bash
 npm run dev
@@ -139,7 +203,7 @@ npm run dev
 
 ---
 
-### 4️⃣ Iniciar API mock
+### 5️⃣ Iniciar API mock
 
 ```bash
 npx json-server --watch db.json --port 3001
@@ -147,6 +211,31 @@ npx json-server --watch db.json --port 3001
 
 ---
 
-## 👨‍💻 Autor
+# 📸 Preview do Projeto
+
+Dashboard com:
+
+* métricas de vendas
+* gráfico de receita
+* tabela de pedidos
+* busca e filtros
+* modo escuro
+
+---
+
+# 💡 Possíveis Melhorias Futuras
+
+* Autenticação de usuários
+* Backend real com **Node.js ou NestJS**
+* Banco de dados **PostgreSQL**
+* Deploy completo (Frontend + Backend)
+* Sidebar colapsável
+* Exportação de relatórios
+
+---
+
+# 👨‍💻 Autor
 
 **Lucas Vasconcelos**
+
+---
