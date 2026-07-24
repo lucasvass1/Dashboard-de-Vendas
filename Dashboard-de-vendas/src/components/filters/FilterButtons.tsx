@@ -3,50 +3,32 @@ type FilterButtonsProps = {
   setStatusFilter: (value: string) => void;
 };
 
-const baseStyle = {
-  padding: "8px 16px",
-  borderRadius: "8px",
-  border: "none",
-  cursor: "pointer",
-  marginRight: "8px",
-};
-
-const activeStyle = {
-  background: "#111",
-  color: "#fff",
-};
-
-const inactiveStyle = {
-  background: "#eee",
-};
+const options = [
+  { value: "todos", label: "Todos" },
+  { value: "pago", label: "Pagos" },
+  { value: "pendente", label: "Pendentes" },
+  { value: "cancelado", label: "Cancelados" },
+];
 
 export function FilterButtons({
   statusFilter,
   setStatusFilter,
 }: FilterButtonsProps) {
-
-  const getButtonStyle = (status: string) => ({
-    ...baseStyle,
-    ...(statusFilter === status ? activeStyle : inactiveStyle),
-  });
-
   return (
-    <div className="px-4 py-2 rounded-lg transiction">
-      <button onClick={() => setStatusFilter("todos")} style={getButtonStyle("todos")}>
-        Todos
-      </button>
-
-      <button onClick={() => setStatusFilter("pago")} style={getButtonStyle("pago")}>
-        Pagos
-      </button>
-
-      <button onClick={() => setStatusFilter("pendente")} style={getButtonStyle("pendente")}>
-        Pendentes
-      </button>
-
-      <button onClick={() => setStatusFilter("cancelado")} style={getButtonStyle("cancelado")}>
-        Cancelados
-      </button>
+    <div className="flex flex-wrap gap-2">
+      {options.map(({ value, label }) => (
+        <button
+          key={value}
+          onClick={() => setStatusFilter(value)}
+          className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+            statusFilter === value
+              ? "bg-indigo-600 text-white shadow-sm"
+              : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
+          }`}
+        >
+          {label}
+        </button>
+      ))}
     </div>
   );
 }

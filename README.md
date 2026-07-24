@@ -12,8 +12,10 @@ Interface com:
 
 * 📈 **Gráfico de vendas**
 * 📊 **Cards de métricas**
-* 📋 **Tabela de pedidos**
-* 🔎 **Filtro por status**
+* 📋 **Tabela de pedidos com paginação**
+* 🔎 **Filtro por status e busca por cliente**
+* 🌗 **Modo claro/escuro** (persistido no navegador)
+* 🧭 **Navegação lateral com múltiplas páginas**
 * ⏳ **Loading state**
 * ⚠️ **Error handling**
 
@@ -46,7 +48,7 @@ Este projeto aplica diversas boas práticas de desenvolvimento front-end:
 
 ## 📊 Funcionalidades
 
-### Dashboard
+### Dashboard (`/`)
 
 * Visualização de **métricas de vendas**
 * Cards com:
@@ -55,23 +57,21 @@ Este projeto aplica diversas boas práticas de desenvolvimento front-end:
   * Total de vendas
   * Clientes
 
+  > Os cards de métricas usam dados estáticos (`src/data/salesData.ts`), não vêm da API mock.
+
 ### Gráfico
 
-* Gráfico de vendas mensais
+* Gráfico de vendas mensais (dados estáticos em `src/data/chartData.ts`)
 * Visualização clara da evolução do negócio
 
-### Filtros
+### Filtros e busca
 
-Permite filtrar pedidos por:
-
-* Todos
-* Pagos
-* Pendentes
-* Cancelados
+* Filtro de pedidos por status: Todos, Pagos, Pendentes, Cancelados
+* Busca de pedidos por nome do cliente
 
 ### Tabela de pedidos
 
-Exibe:
+Exibe (consumindo a API mock):
 
 * ID
 * Cliente
@@ -83,7 +83,15 @@ Com:
 
 * destaque visual de status
 * hover nas linhas
-* layout moderno
+* paginação
+* layout moderno com suporte a dark mode
+
+### Navegação e tema
+
+* Sidebar com rotas para **Dashboard**, **Pedidos**, **Clientes** e **Relatórios**
+* Alternância entre modo claro e escuro, com preferência salva no navegador
+
+> ⚠️ As páginas **Pedidos**, **Clientes** e **Relatórios** ainda são telas placeholder ("em breve"), sem funcionalidade própria implementada. Toda a lógica de dados hoje está concentrada na tela de Dashboard.
 
 ---
 
@@ -110,7 +118,7 @@ npx json-server --watch db.json --port 3001
 ### 1️⃣ Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/sales-dashboard.git
+git clone https://github.com/lucasvass1/Dashboard-de-Vendas.git
 ```
 
 ---
